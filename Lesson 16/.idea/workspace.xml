@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="05478863-ef87-4663-a8a8-abc089013bd3" name="Default Changelist" comment="">
+    <list default="true" id="f172c486-5c05-4ffa-8237-c2b2bef1f0dc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/company/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson15/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson15/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson15/out/production/lesson15/com/company/Main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson15/out/production/lesson15/com/company/Main$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson15/out/production/lesson15/com/company/Main$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson15/out/production/lesson15/com/company/Main$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson15/out/production/lesson15/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson15/out/production/lesson15/com/company/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson15/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson15/src/com/company/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,34 +18,27 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DefaultGradleProjectSettings">
-    <option name="testRunner" value="GRADLE" />
-    <option name="delegatedBuild" value="true" />
+    <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="113" column="79" selection-start-line="113" selection-start-column="79" selection-end-line="113" selection-end-column="79" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/company/MyClass.java">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="374">
-              <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+              <caret line="28" column="38" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/company/MyThread.java">
+        <entry file="file://$PROJECT_DIR$/src/com/company/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="119">
+              <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -61,8 +58,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/company/MyThread.java" />
-        <option value="$PROJECT_DIR$/src/com/company/MyClass.java" />
+        <option value="$PROJECT_DIR$/src/com/company/User.java" />
         <option value="$PROJECT_DIR$/src/com/company/Main.java" />
       </list>
     </option>
@@ -87,37 +83,39 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="lesson15" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lesson15" type="462c0819:PsiDirectoryNode" />
+              <item name="Lesson 16" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Lesson 16" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="lesson15" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lesson15" type="462c0819:PsiDirectoryNode" />
+              <item name="Lesson 16" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Lesson 16" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="lesson15" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lesson15" type="462c0819:PsiDirectoryNode" />
+              <item name="Lesson 16" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Lesson 16" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="company" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Lesson 16" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lesson15/src/com/company/Main.java" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -134,7 +132,7 @@
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.company.Main" />
-      <module name="lesson15" />
+      <module name="Lesson 16" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
@@ -153,11 +151,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="05478863-ef87-4663-a8a8-abc089013bd3" name="Default Changelist" comment="" />
-      <created>1581089256867</created>
+      <changelist id="f172c486-5c05-4ffa-8237-c2b2bef1f0dc" name="Default Changelist" comment="" />
+      <created>1582039675000</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1581089256867</updated>
+      <updated>1582039675000</updated>
     </task>
     <servers />
   </component>
@@ -165,24 +163,24 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25692964" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32936078" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -194,41 +192,35 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/company/MyClass.java">
+    <entry file="file://$PROJECT_DIR$/../lesson15/src/com/company/Main.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user.bir">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/users.bir">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+        <state relative-caret-position="17">
+          <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/MyThread.java">
+    <entry file="file://$PROJECT_DIR$/src/com/company/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="119">
+          <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="113" column="79" selection-start-line="113" selection-start-column="79" selection-end-line="113" selection-end-column="79" />
+        <state relative-caret-position="374">
+          <caret line="28" column="38" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ScopeChooserConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>
