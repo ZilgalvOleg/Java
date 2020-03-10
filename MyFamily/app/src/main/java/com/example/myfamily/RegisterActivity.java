@@ -4,10 +4,23 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.example.myfamily.api.APIServise;
+import com.example.myfamily.model.LoginRequest;
+import com.example.myfamily.model.LoginResponse;
+import com.example.myfamily.model.RegistrationRequest;
+import com.example.myfamily.model.RegistrationResponse;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -45,7 +58,13 @@ public class RegisterActivity extends AppCompatActivity {
                 }
                 if (!error.equals("")){
                     showError(error);
+                    return;
                 }
+                registerUser(
+                        name.getText().toString(),
+                        email.getText().toString(),
+                        password.getText().toString()
+                );
 
             }
         });
@@ -63,6 +82,36 @@ public class RegisterActivity extends AppCompatActivity {
                 alert.setIcon(R.drawable.ic_launcher_foreground);
                 alert.create().show();
     }
+            public void registerUser (String name, String email, String password){
+                RegistrationRequest r = new RegistrationRequest();
+                r.email = email;
+                r.pasword = password;
+                r.name = name;
+                APIServise.getInstance()
+                        .getAPI()
+                        .registration(r)
+                        .enqueue(new Callback<RegistrationResponse>() {
+                            @Override
+                            public void onResponse(Call<RegistrationResponse> call, Response<RegistrationResponse> response) {
+                                RegistrationResponse resp = response.body();
+                                if(!resp.result){
+                                    showError(resp.error);
+                                } else {
+                                    showConfirmActivity();
+                                }
+
+                            }
+                            @Override
+                            public void onFailure(Call<RegistrationResponse> call, Throwable t) {
+                                showError(t.getMessage());
+                            }
+                        });
+            }
+    public void showConfirmActivity(){
+        Intent i = new Intent(this, ConfirmActivity.class);
+        startActivity(i);
+    }
+
 }
 
 
