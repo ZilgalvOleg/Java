@@ -11,10 +11,12 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.myfamily.api.APIServise;
+import com.example.myfamily.api.APIbuilder;
 import com.example.myfamily.model.ConfirmRequest;
 import com.example.myfamily.model.ConfirmResponse;
 import com.example.myfamily.model.RegistrationRequest;
 import com.example.myfamily.model.RegistrationResponse;
+import com.google.gson.Gson;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -57,25 +59,24 @@ public class ConfirmActivity extends AppCompatActivity {
     public void confirmCode (String code){
         ConfirmRequest r = new ConfirmRequest();
         r.code = code;
-        APIServise.getInstance()
-                .getAPI()
-                .confirm(r)
-                .enqueue(new Callback<ConfirmResponse>() {
-                    @Override
-                    public void onResponse(Call<ConfirmResponse> call, Response<ConfirmResponse> response) {
-                        ConfirmResponse resp = response.body();
-                        if(!resp.result){
-                            showError(resp.error);
-                        } else {
-                            showMenuActivity();
-                        }
+        APIbuilder<ConfirmRequest, ConfirmResponse> builder = new APIbuilder<>();
+        builder.execute("confirm", r, ConfirmResponse.class,
+                new APIbuilder.OnCallback<ConfirmResponse>() {
+            @Override
+            public void onResponse(ConfirmResponse resp) {
+                if(!resp.result){
+                    showError((resp.error));
+                }else {
+                    showMenuActivity();
+                }
+            }
 
-                    }
-                    @Override
-                    public void onFailure(Call<ConfirmResponse> call, Throwable t) {
-                        showError(t.getMessage());
-                    }
-                });
+            @Override
+            public void onError(Exception e) {
+                showError(e.getMessage());
+
+            }
+        });
     }
     public void showMenuActivity(){
         Intent i = new Intent(this, MenuActivity.class);

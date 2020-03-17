@@ -13,10 +13,12 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.myfamily.api.APIServise;
+import com.example.myfamily.api.APIbuilder;
 import com.example.myfamily.model.LoginRequest;
 import com.example.myfamily.model.LoginResponse;
 import com.example.myfamily.model.RegistrationRequest;
 import com.example.myfamily.model.RegistrationResponse;
+import com.google.gson.Gson;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -87,25 +89,24 @@ public class RegisterActivity extends AppCompatActivity {
                 r.email = email;
                 r.pasword = password;
                 r.name = name;
-                APIServise.getInstance()
-                        .getAPI()
-                        .registration(r)
-                        .enqueue(new Callback<RegistrationResponse>() {
-                            @Override
-                            public void onResponse(Call<RegistrationResponse> call, Response<RegistrationResponse> response) {
-                                RegistrationResponse resp = response.body();
-                                if(!resp.result){
-                                    showError(resp.error);
-                                } else {
-                                    showConfirmActivity();
-                                }
+                APIbuilder<RegistrationRequest, RegistrationResponse> builder = new APIbuilder<>();
+                builder.execute("registration", r, RegistrationResponse.class,
+                        new APIbuilder.OnCallback<RegistrationResponse>() {
+                    @Override
+                    public void onResponse(RegistrationResponse resp) {
+                        if(!resp.result){
+                            showError((resp.error));
+                        }else {
+                            showConfirmActivity();
+                        }
+                    }
 
-                            }
-                            @Override
-                            public void onFailure(Call<RegistrationResponse> call, Throwable t) {
-                                showError(t.getMessage());
-                            }
-                        });
+                    @Override
+                    public void onError(Exception e) {
+                        showError(e.getMessage());
+
+                    }
+                });
             }
     public void showConfirmActivity(){
         Intent i = new Intent(this, ConfirmActivity.class);

@@ -13,7 +13,7 @@ public class APIServise {
             instance = new APIServise();
             //патерн FabricBuilder (Фабричный конструктор)
             instance.mRetrofit = new Retrofit.Builder()
-                    .baseUrl("http://127.0.0.1:8080")//указываем адрес сервера
+                    .baseUrl("http://48da1b80.ngrok.io")//указываем адрес сервера
                     .addConverterFactory(GsonConverterFactory.create())//конвертируем информацию из json в объект
                     .build();
 

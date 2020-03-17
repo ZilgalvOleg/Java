@@ -14,8 +14,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.myfamily.api.APIServise;
+import com.example.myfamily.api.APIbuilder;
 import com.example.myfamily.model.LoginRequest;
 import com.example.myfamily.model.LoginResponse;
+import com.google.gson.Gson;
 
 import java.util.prefs.PreferenceChangeEvent;
 
@@ -30,6 +32,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //проверяем, выполнен ли вход
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        if (preferences.contains("API_TOKEN")) {
+            showMenuActivity();
+            return;
+        }
         final EditText login = findViewById(R.id.login);
         final EditText password = findViewById(R.id.password);
         Button loginBtn = findViewById(R.id.loginBtn);
@@ -85,40 +94,40 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, StartActivity.class);
         startActivity(i);
     }
+    public void ShowError(String error){
+        errorMsg.setText(error);
+        errorMsg.setVisibility(View.VISIBLE);
+        }
     public void loginUser(String email, String password){
         LoginRequest r = new LoginRequest();
         r.email = email;
         r.password = password;
-        APIServise.getInstance()
-                .getAPI()
-                .login(r)
-                .enqueue(new Callback<LoginResponse>() {
-                    @Override
-                    public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                        LoginResponse resp = response.body();
-                        if(!resp.result){
-                            errorMsg.setVisibility(View.VISIBLE);
-                            errorMsg.setText(resp.error);
-                        } else {
-                            //Сохранить токен в память устройства
-                            //сохраняем токен в кэш приложения
-                            SharedPreferences preferences =
-                                    PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
-                            SharedPreferences.Editor editor = preferences.edit();
-                            editor.putString("API_TOKEN", resp.token);
-                            editor.apply();
-                            //если мы захотим получить значение из кэш
-                            //preferences.getString("API_TOKEN", "default");
-                            showMenuActivity();
-                        }
+        APIbuilder<LoginRequest, LoginResponse> builder = new APIbuilder<>();
+        builder.execute("login", r, LoginResponse.class, new APIbuilder.OnCallback<LoginResponse>() {
+            @Override
+            public void onResponse(LoginResponse resp) {
+                if(!resp.result){
+                    errorMsg.setVisibility(View.VISIBLE);
+                    errorMsg.setText(resp.error);
+                } else {
+                    //Сохранить токен в память устройства
+                    //сохраняем токен в кэш приложения
+                    SharedPreferences preferences =
+                            PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("API_TOKEN", resp.token);
+                    editor.apply();
+                    //если мы захотим получить значение из кэш
+                    //preferences.getString("API_TOKEN", "default");
+                    showMenuActivity();
+                }
+            }
 
-                    }
+            @Override
+            public void onError(Exception e) {
+                ShowError(e.getMessage());
+            }
+        });
 
-                    @Override
-                    public void onFailure(Call<LoginResponse> call, Throwable t) {
-                        errorMsg.setVisibility(View.VISIBLE);
-                        errorMsg.setText(t.getMessage());
-                    }
-                });
     }
 }
