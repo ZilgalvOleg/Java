@@ -6,3 +6,4 @@ public class ConfirmRequest {
     @SerializedName("code")
     public String code;
 }
+

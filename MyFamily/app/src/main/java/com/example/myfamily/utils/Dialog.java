@@ -28,4 +28,11 @@ public class Dialog {
         alert.setCancelable(true);//
         alert.create().show();
     }
+    public static void showCalendarDialog (Context ctx){
+        //создаем всплывающий диалог
+        AlertDialog.Builder alert = new AlertDialog.Builder(ctx);
+        alert.setView(R.layout.calendar_layout);
+        alert.setCancelable(true);
+        alert.create().show();
+    }
 }
