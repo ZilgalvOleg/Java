@@ -17,6 +17,7 @@ import com.example.myfamily.model.CreditLabels;
 import com.example.myfamily.utils.Dialog;
 
 import java.util.Calendar;
+import java.util.Locale;
 
 public class AddCreditActivity extends AppCompatActivity {
 
@@ -29,7 +30,7 @@ public class AddCreditActivity extends AppCompatActivity {
         final EditText sum = findViewById(R.id.sum);
         final EditText date = findViewById(R.id.date);
         final EditText time = findViewById(R.id.time);
-        Button okBtn = findViewById(R.id.okbtn);
+        Button okBtn = findViewById(R.id.okBtn);
 
         String []data = new String[CreditLabels.values().length];
         int i = 0;
@@ -59,11 +60,11 @@ public class AddCreditActivity extends AppCompatActivity {
             }
         });
         Calendar calendar = Calendar.getInstance();
-        String dataStr = String.format("%d/%d/%d", calendar.get(Calendar.DAY_OF_MONTH),
+        String dataStr = String.format(Locale.getDefault(), "%d/%d/%d", calendar.get(Calendar.DAY_OF_MONTH),
                 calendar.get(Calendar.MONTH) + 1,
                 calendar.get(Calendar.YEAR));
         date.setText(dataStr);
-        String timeStr = String.format("%d/%d/%d", calendar.get(Calendar.HOUR),
+        String timeStr = String.format("%d/%d/%d", calendar.get(Calendar.HOUR_OF_DAY),
                 calendar.get(Calendar.MINUTE),
                 calendar.get(Calendar.SECOND));
         time.setText(timeStr);

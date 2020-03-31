@@ -9,9 +9,13 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 
 import com.example.myfamily.adapter.FinanceAdapter;
+import com.example.myfamily.api.APIbuilder;
 import com.example.myfamily.model.Finance;
+import com.example.myfamily.model.FinanceResponse;
 import com.example.myfamily.utils.Dialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.Calendar;
 
 public class FinanceActivity extends AppCompatActivity {
     /////TODO:remove
@@ -34,7 +38,18 @@ public class FinanceActivity extends AppCompatActivity {
         calendarBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Dialog.showCalendarDialog(FinanceActivity.this);
+                Dialog.showCalendarDialog(FinanceActivity.this, new Dialog.onDateChangeListener() {
+                    @Override
+                    public void onDateChange(int year, int month, int day) {
+                        fetchFinance(year, month, day);
+                    }
+                });
+                //TODO: uncomment
+                Calendar calendar = Calendar.getInstance();
+                /*fetchFinance(
+                        calendar.get(Calendar.YEAR),
+                        calendar.get(Calendar.MONTH),
+                        calendar.get(Calendar.DAY_OF_MONTH));*/
 
             }
         });
@@ -49,5 +64,31 @@ public class FinanceActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+    public void fetchFinance (int year, int month, int day){
+        APIbuilder<String, FinanceResponse> builder = new APIbuilder<>();
+        builder.execute("getFinance", String.format("%d/%d/%d", day, month, year),
+                FinanceResponse.class, new APIbuilder.OnCallback<FinanceResponse>() {
+            @Override
+            public void onResponse(FinanceResponse r) {
+                if (!r.result){
+                    Dialog.showErrorDialog(FinanceActivity.this, r.error);
+                    return;
+                }
+                showList (r.finances);
+            }
+
+            @Override
+            public void onError(Exception e) {
+                Dialog.showErrorDialog(FinanceActivity.this, "Ничего не найдено за указанную дату");
+
+            }
+        });
+    }
+    public void showList (Finance [] finances){
+        FinanceAdapter adapter = new FinanceAdapter(FinanceActivity.this, finances);
+        this.financeList.setAdapter(adapter);
+        //notifyAll - насильно перерисует область с нашим ListView на экране
+        this.financeList.notifyAll();
     }
 }
