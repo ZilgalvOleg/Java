@@ -53,6 +53,22 @@ public class Main {
         book2.setNumberOfPages(452);
         book2.addAuthor(author4);
 
+        authors[0] = author;
+        authors[1] = author1;
+        authors[2] = author2;
+        authors[3] = author3;
+        authors[4] = author4;
+
+        books[0] = book;
+        books[1] = book1;
+        books[2] = book2;
+        books[3] = book3;
+        books[4] = book4;
+
+        Arrays.stream(books)
+                .filter((s) -> s.setNumberOfPages > 200);
+
+
 
 
 

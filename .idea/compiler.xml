@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="myProject2-bundle-mock" />
+        <module name="myProject2-biz" />
+        <module name="myProject2-base" />
+        <module name="myProject2-api-test" />
+        <module name="myProject2-bundle" />
+        <module name="myProject2-task" />
+        <module name="myProject2-provider-mock" />
+        <module name="myProject2-provider" />
+        <module name="myProject2-test" />
+        <module name="myProject2-api" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
